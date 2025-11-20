@@ -1,0 +1,28 @@
+{% extends 'todos/base.html' %}
+
+{% block content %}
+<a href="{% url 'todo-create' %}" class="btn">Add New Todo</a>
+<hr>
+{% for todo in todos %}
+<div class="todo-item">
+    <div>
+        <span class="{% if todo.is_resolved %}resolved{% endif %}">
+            <strong>{{ todo.title }}</strong>
+            {% if todo.due_date %}
+            <small>(Due: {{ todo.due_date|date:"Y-m-d H:i" }})</small>
+            {% endif %}
+        </span>
+        <p>{{ todo.description }}</p>
+    </div>
+    <div class="actions">
+        <a href="{% url 'todo-resolve' todo.pk %}">
+            {% if todo.is_resolved %}Unresolve{% else %}Resolve{% endif %}
+        </a>
+        <a href="{% url 'todo-update' todo.pk %}">Edit</a>
+        <a href="{% url 'todo-delete' todo.pk %}">Delete</a>
+    </div>
+</div>
+{% empty %}
+<p>No todos yet.</p>
+{% endfor %}
+{% endblock %}

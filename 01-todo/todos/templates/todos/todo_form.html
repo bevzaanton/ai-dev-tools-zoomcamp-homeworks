@@ -1,0 +1,17 @@
+{% extends 'todos/base.html' %}
+
+{% block content %}
+<h2>{% if form.instance.pk %}Edit{% else %}New{% endif %} Todo</h2>
+<form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="form-group">
+        {{ field.label_tag }}
+        {{ field }}
+        {{ field.errors }}
+    </div>
+    {% endfor %}
+    <button type="submit" class="btn">Save</button>
+    <a href="{% url 'todo-list' %}">Cancel</a>
+</form>
+{% endblock %}
