@@ -1,6 +1,6 @@
 # Walkthrough - Online Coding Interview App
 
-![App Screenshot](/Users/user_1/.gemini/antigravity/brain/e07da4ec-42cd-4a40-b86b-da0f4e0d721f/fixed_page_view_1764591429365.png)
+![App Screenshot](<img width="2557" height="1349" alt="image" src="https://github.com/user-attachments/assets/87fbc2b3-d00e-4ca6-8e46-8b9fa720e095" />)
 
 ## Features
 
