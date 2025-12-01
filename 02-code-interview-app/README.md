@@ -7,23 +7,40 @@
 - **Real-time Collaboration**: Multiple users can edit code simultaneously with instant synchronization
 - **User Presence**: Each connected user gets a random name and color, visible in the participants list
 - **Code Execution**: Run JavaScript code directly in the browser
-- **Syntax Highlighting**: Support for JavaScript and Python
+- **Syntax Highlighting**: Powered by Monaco Editor (VS Code's editor) with full syntax highlighting support for JavaScript and Python
+- **Dark Theme**: Professional dark theme for comfortable coding
 
 ## Prerequisites
 - Node.js installed
-- Two terminal windows (or use the provided commands)
 
 ## How to Run
 
-### 1. Start Backend
+### Quick Start (Both Frontend and Backend)
+Run both the frontend and backend concurrently with a single command:
+
+```bash
+# Install all dependencies first (only needed once)
+npm run install:all
+
+# Start both frontend and backend
+npm run dev
+```
+
+This will start:
+- Backend server on `http://localhost:3000`
+- Frontend app on `http://localhost:5173`
+
+### Alternative: Run Separately
+
+#### 1. Start Backend
 Navigate to `backend` directory and run:
 ```bash
 cd backend
-node index.js
+npm start
 ```
 Server runs on `http://localhost:3000`.
 
-### 2. Start Frontend
+#### 2. Start Frontend
 Navigate to `frontend` directory and run:
 ```bash
 cd frontend
@@ -62,3 +79,105 @@ App runs on `http://localhost:5173`.
 - Select Python from the language dropdown.
 - Click "Run".
 - Verify it shows a message that execution is not supported in this demo.
+
+### Syntax Highlighting
+The application uses **Monaco Editor** (the same editor that powers Visual Studio Code) which provides professional-grade syntax highlighting out of the box:
+
+1. **JavaScript Syntax Highlighting:**
+   - Select "JavaScript" from the language dropdown
+   - Type JavaScript code with various syntax elements:
+     ```javascript
+     // Comments are highlighted
+     const greeting = "Hello World"; // Strings
+     function calculate(a, b) {      // Keywords
+       return a + b;                 // Operators
+     }
+     ```
+   - Observe syntax highlighting for keywords, strings, comments, operators, and functions
+
+2. **Python Syntax Highlighting:**
+   - Select "Python" from the language dropdown
+   - Type Python code:
+     ```python
+     # Comments are highlighted
+     def greet(name):              # Keywords and functions
+         message = f"Hello {name}" # Strings with f-string syntax
+         return message
+     ```
+   - Observe syntax highlighting for Python-specific syntax including keywords, strings, and indentation
+
+3. **Additional Editor Features:**
+   - Dark theme for comfortable coding
+   - Line numbers
+   - Automatic bracket matching
+   - Code folding support
+   - IntelliSense-style autocomplete
+
+## Running Tests
+
+### Run All Tests
+From the project root, run both backend and frontend tests:
+```bash
+npm test
+```
+
+Or run them separately:
+```bash
+npm run test:backend   # Backend only
+npm run test:frontend  # Frontend only
+npm run test:all      # Both in parallel
+```
+
+### Backend Tests
+Navigate to the `backend` directory and run:
+```bash
+cd backend
+npm test
+```
+
+The backend test suite includes **9 tests**:
+- **User Connection and Presence** (4 tests)
+  - User info on connection
+  - Users update with current user
+  - Broadcasting updates when new user connects
+  - Broadcasting updates when user disconnects
+
+- **Code Synchronization** (3 tests)
+  - Broadcasting code changes to other clients
+  - Not sending updates to the sender
+  - Handling multiple code changes in sequence
+
+- **Multiple Clients** (2 tests)
+  - Handling 3 simultaneous connections
+  - Broadcasting code to all other clients
+
+Technologies: Jest, Socket.io client for integration testing
+
+### Frontend Tests
+Navigate to the `frontend` directory and run:
+```bash
+cd frontend
+npm test              # Run tests once
+npm run test:watch    # Run in watch mode
+npm run test:ui       # Run with UI
+npm run test:coverage # Run with coverage report
+```
+
+The frontend test suite includes **12 tests**:
+- **OutputPanel Component** (5 tests)
+  - Rendering output heading
+  - Displaying ready message
+  - Displaying output lines
+  - Handling empty output
+  - Rendering multiple lines correctly
+
+- **Sidebar Component** (7 tests)
+  - Rendering participants heading
+  - Displaying user count
+  - Setting up socket listeners
+  - Cleaning up listeners on unmount
+  - Updating users list
+  - Displaying current user with "(You)" label
+  - Displaying user badges with initials
+
+Technologies: Vitest, React Testing Library, jsdom
