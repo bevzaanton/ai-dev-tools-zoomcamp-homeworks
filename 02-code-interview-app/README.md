@@ -1,6 +1,6 @@
 # Walkthrough - Online Coding Interview App
 
-![App Screenshot](https://github.com/user-attachments/assets/1d03b985-adf1-43b6-b6eb-1f734010042d)
+![App Screenshot](https://github.com/user-attachments/assets/9577be90-7f2b-40ec-b8b9-65aee506a02f)
 
 ## Features
 
