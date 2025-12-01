@@ -1,0 +1,98 @@
+.app-container {
+  display: flex;
+  height: 100%;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: var(--sidebar-bg);
+  border-right: 1px solid var(--border-color);
+  padding: 1rem;
+}
+
+.sidebar h2 {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.user-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.user-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.user-item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.user-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.75rem;
+  color: white;
+  flex-shrink: 0;
+}
+
+.user-name {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.code-editor {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.editor-header {
+  padding: 0.5rem 1rem;
+  background-color: var(--sidebar-bg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.editor-textarea {
+  flex: 1;
+  background-color: var(--editor-bg);
+  color: var(--text-color);
+  border: none;
+  padding: 1rem;
+  font-family: 'Fira Code', monospace;
+  resize: none;
+  outline: none;
+}
+
+.output-panel {
+  flex: 1;
+  background-color: var(--panel-bg);
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.output-content {
+  font-family: 'Fira Code', monospace;
+  color: #aaa;
+}
