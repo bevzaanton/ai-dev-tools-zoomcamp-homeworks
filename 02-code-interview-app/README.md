@@ -6,7 +6,7 @@
 
 - **Real-time Collaboration**: Multiple users can edit code simultaneously with instant synchronization
 - **User Presence**: Each connected user gets a random name and color, visible in the participants list
-- **Code Execution**: Run JavaScript code directly in the browser
+- **Code Execution**: Run JavaScript and Python code directly in the browser using WASM (WebAssembly)
 - **Syntax Highlighting**: Powered by Monaco Editor (VS Code's editor) with full syntax highlighting support for JavaScript and Python
 - **Dark Theme**: Professional dark theme for comfortable coding
 
@@ -65,20 +65,45 @@ App runs on `http://localhost:5173`.
 3. Verify that the code updates in real-time in the other window.
 
 ### Code Execution
+
+The application supports executing both JavaScript and Python code directly in the browser using WebAssembly (WASM). All code execution happens client-side for security.
+
+#### JavaScript Execution
 1. Select "JavaScript" from the language dropdown.
 2. Type some JavaScript code, e.g.:
    ```javascript
    console.log("Hello from the browser!");
    const sum = (a, b) => a + b;
    console.log(sum(5, 3));
+   // Output:
+   // Hello from the browser!
+   // 8
    ```
 3. Click "Run".
 4. Verify the output appears in the Output Panel.
 
-### Language Support
-- Select Python from the language dropdown.
-- Click "Run".
-- Verify it shows a message that execution is not supported in this demo.
+#### Python Execution
+1. Select "Python" from the language dropdown.
+2. Type some Python code, e.g.:
+   ```python
+   print("Hello from Python!")
+
+   def fibonacci(n):
+       if n <= 1:
+           return n
+       return fibonacci(n-1) + fibonacci(n-2)
+
+   print(f"Fibonacci(10) = {fibonacci(10)}")
+
+   # Output:
+   # Hello from Python!
+   # Fibonacci(10) = 55
+   ```
+3. Click "Run".
+4. The first time you run Python code, Pyodide (Python WASM runtime) will be loaded automatically. This may take a few seconds.
+5. Verify the output appears in the Output Panel.
+
+**Note**: Python execution uses Pyodide, which provides a full Python 3.11 environment compiled to WebAssembly. The runtime is cached after the first load for better performance.
 
 ### Syntax Highlighting
 The application uses **Monaco Editor** (the same editor that powers Visual Studio Code) which provides professional-grade syntax highlighting out of the box:

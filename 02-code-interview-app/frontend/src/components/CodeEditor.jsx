@@ -23,7 +23,9 @@ const CodeEditor = ({ onRun }) => {
     socket.emit('code-change', value);
   };
 
-  const handleRun = () => {
+  const handleRun = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     if (onRun) {
       onRun(code, language);
     }
@@ -40,7 +42,7 @@ const CodeEditor = ({ onRun }) => {
           <option value="javascript">JavaScript</option>
           <option value="python">Python</option>
         </select>
-        <button className="run-button" onClick={handleRun}>Run</button>
+        <button type="button" className="run-button" onClick={handleRun}>Run</button>
       </div>
       <Editor
         height="100%"
