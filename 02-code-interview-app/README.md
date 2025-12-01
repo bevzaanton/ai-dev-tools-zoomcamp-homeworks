@@ -1,6 +1,6 @@
 # Walkthrough - Online Coding Interview App
 
-![App Screenshot](<img width="2557" height="1349" alt="image" src="https://github.com/user-attachments/assets/87fbc2b3-d00e-4ca6-8e46-8b9fa720e095" />)
+![App Screenshot](https://github.com/user-attachments/assets/1d03b985-adf1-43b6-b6eb-1f734010042d)
 
 ## Features
 
