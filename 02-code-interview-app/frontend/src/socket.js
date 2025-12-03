@@ -1,6 +1,6 @@
 import { io } from 'socket.io-client';
 
-const URL = 'http://localhost:3000'; // Backend URL
+const URL = import.meta.env.PROD ? undefined : 'http://localhost:3000';
 
 export const socket = io(URL, {
     autoConnect: false
