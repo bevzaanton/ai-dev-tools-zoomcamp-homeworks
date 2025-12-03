@@ -71,7 +71,7 @@ io.on('connection', (socket) => {
 });
 
 // Serve index.html for all other routes (SPA support)
-app.get('*', (req, res) => {
+app.use((req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
