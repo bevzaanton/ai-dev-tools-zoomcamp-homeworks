@@ -1,5 +1,4 @@
 import asyncio
-import sys
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 
@@ -20,19 +19,15 @@ async def run():
             tools = await session.list_tools()
             print(f"Connected to server. Available tools: {[tool.name for tool in tools.tools]}")
 
-            # Call the scrape tool
-            url = "https://datatalks.club/"
-            print(f"Scraping {url}...")
-            result = await session.call_tool("scrape", arguments={"url": url})
+            # Call the search tool
+            query = "how to create a tool"
+            print(f"Searching for: '{query}'...")
+            result = await session.call_tool("search_docs", arguments={"query": query})
             
-            # The result content is usually a list of TextContent or ImageContent
-            # We assume it returns text.
+            # The result content is usually a list of TextContent
             content = result.content[0].text
-            
-            # Count "data"
-            count = content.lower().count("data")
-            print(f"Content length: {len(content)}")
-            print(f"The word 'data' appears {count} times.")
+            print("Search Results:")
+            print(content)
 
 if __name__ == "__main__":
     asyncio.run(run())
