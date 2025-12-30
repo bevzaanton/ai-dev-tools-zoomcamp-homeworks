@@ -2,6 +2,9 @@
 
 ![App Screenshot](https://github.com/user-attachments/assets/4281a094-fd46-434b-8a65-345d4f50ede0)
 
+## 🚀 Live Demo
+**Try it now:** [https://code-interview-app.onrender.com/](https://code-interview-app.onrender.com/)
+
 ## Features
 
 - **Real-time Collaboration**: Multiple users can edit code simultaneously with instant synchronization
